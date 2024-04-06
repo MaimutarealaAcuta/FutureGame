@@ -56,6 +56,5 @@ public class PlayerController : MonoBehaviour
         Rigidbody rb = GetComponent<Rigidbody>();
         Vector3 velocity = new Vector3(rb.velocity.x, Mathf.Sqrt(jumpHeight * -2.0f * gravity), rb.velocity.z);
         rb.velocity = velocity;
-        Debug.Log(rb.velocity);
     }
 }

@@ -16,10 +16,19 @@ public class PlayerInput : MonoBehaviour
     public delegate void Interact();
     public Interact interactHandler;
 
+    public delegate void ShowObjective();
+    public ShowObjective showObjectiveHandler;
+
 
     [SerializeField]
     [Range(1.0f,5.0f)]
     private float mouseSensitivity = 1f;
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
     void Update()
     {
@@ -38,6 +47,11 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             interactHandler?.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyUp(KeyCode.Tab))
+        {
+            showObjectiveHandler?.Invoke();
         }
     }
 }

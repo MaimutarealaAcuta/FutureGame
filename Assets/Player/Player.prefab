@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 7080069567564023972}
   - component: {fileID: 6797910460626649922}
   - component: {fileID: 7320258661157768265}
-  - component: {fileID: 3225731732942669154}
+  - component: {fileID: 5373517065780875730}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -219,14 +219,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 9216688998412939397}
   minInteractDistance: 2
---- !u!81 &3225731732942669154
-AudioListener:
+--- !u!114 &5373517065780875730
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4101538630619704920}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b0a7aff5b793a4a958c57bca3e4c7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8162339181942474008
 GameObject:
   m_ObjectHideFlags: 0

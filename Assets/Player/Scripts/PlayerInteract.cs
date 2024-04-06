@@ -9,6 +9,7 @@ public class PlayerInteract : MonoBehaviour
     private Interactable currentGazeTarget;
 
     private PlayerInput playerInput;
+    private UIInteractScript ui;
 
     private bool interactionEnabled = true;
     
@@ -16,6 +17,8 @@ public class PlayerInteract : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         playerInput.interactHandler += Interact;
+
+        ui = FindObjectOfType<UIInteractScript>();
     }
 
     private void Update()
@@ -37,15 +40,14 @@ public class PlayerInteract : MonoBehaviour
                 if (currentGazeTarget != null) currentGazeTarget.Unhighlight();
                 currentGazeTarget = targetObj;
                 currentGazeTarget.Highlight();
-                //ui.showMessage(targetObj.interactMessage);
-                Debug.Log(targetObj.InteractMessage);
+                ui.ShowMessage(targetObj.InteractMessage);
             }
         }
         else
         {
             if (currentGazeTarget != null) currentGazeTarget.Unhighlight();
             currentGazeTarget = null;
-            //ui.hideMessages();
+            ui.HideMessage();
         }
     }
 
