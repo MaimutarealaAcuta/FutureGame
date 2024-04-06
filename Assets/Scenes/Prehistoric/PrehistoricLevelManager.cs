@@ -34,6 +34,7 @@ public class PrehistoricLevelManager : LevelManager
             for (int i = 0; i < pickable.value; i++)
             {
                 GameObject instance = Instantiate(pickable.key, new Vector3(Random.Range(-100, 100), 500, Random.Range(-100, 100)), Quaternion.identity);
+                instance.name = pickable.key.name;
                 // place instance on ground
                 RaycastHit hit;
                 if (Physics.Raycast(instance.transform.position, Vector3.down, out hit, 1000))
