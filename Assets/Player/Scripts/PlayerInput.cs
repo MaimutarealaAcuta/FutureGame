@@ -22,6 +22,8 @@ public class PlayerInput : MonoBehaviour
     public delegate void ShowObjective();
     public ShowObjective showObjectiveHandler;
 
+    private bool active = true;
+
 
     [SerializeField]
     [Range(1.0f,5.0f)]
@@ -32,9 +34,11 @@ public class PlayerInput : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
+    
     void Update()
     {
+        if (!active) return;
+        
         MousePosition = Input.mousePosition;
         Horizontal = Input.GetAxis("Horizontal");
         Vertical = Input.GetAxis("Vertical");
@@ -61,5 +65,12 @@ public class PlayerInput : MonoBehaviour
         {
             sprintHandler?.Invoke();
         }
+    }
+
+    public void SetInputActive(bool state)
+    {
+        active = state;
+        //Cursor.lockState = disabled ? CursorLockMode.None : CursorLockMode.Locked;
+        //Cursor.visible = disabled;
     }
 }

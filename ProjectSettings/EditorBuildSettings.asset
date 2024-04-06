@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu/MainMenu.unity
     guid: fdde3dab0b7705948b51d3bd1e2065a7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/SpaceShipHub/SpaceShipHub.unity
+    guid: 94ccb306742025546ae578e7b1c97b92
+  - enabled: 1
+    path: Assets/Scenes/Prehistoric/PrehistoricLevel.unity
+    guid: 0b93afb81ad588e4989736553f88344b
   m_configObjects: {}
