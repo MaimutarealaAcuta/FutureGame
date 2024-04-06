@@ -38,12 +38,12 @@ public class PlayerController : MonoBehaviour
         if(isSprinting)
         {
             // increase speed to sprint speed over time
-            speed = Mathf.Lerp(speed, sprintSpeed, 0.1f);
+            speed = Mathf.Lerp(speed, sprintSpeed, 0.02f);
         }
         else
         {
             // decrease speed to walk speed over time
-            speed = Mathf.Lerp(speed, walkSpeed, 0.1f);
+            speed = Mathf.Lerp(speed, walkSpeed, 0.05f);
         }
 
         // player movement

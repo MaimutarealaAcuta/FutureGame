@@ -36,7 +36,12 @@ public abstract class LevelManager: MonoBehaviour
         updateObjectiveHandler?.Invoke(GetObjective());
     }
 
-    protected void Start()
+    public bool CheckObjective(string flag)
+    {
+        return playerInventory.GetFlag(flag) >= flags.Find(f => f.key == flag).value;
+    }
+
+    protected virtual void Start()
     {
         playerInventory = FindObjectOfType<PlayerInventory>();
         foreach (KeyValuePair<string, int> flag in flags)
