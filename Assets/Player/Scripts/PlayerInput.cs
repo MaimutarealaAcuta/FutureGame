@@ -13,6 +13,9 @@ public class PlayerInput : MonoBehaviour
     public delegate void Jump();
     public Jump jumpHandler;
 
+    public delegate void Sprint();
+    public Sprint sprintHandler;
+
     public delegate void Interact();
     public Interact interactHandler;
 
@@ -52,6 +55,11 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyUp(KeyCode.Tab))
         {
             showObjectiveHandler?.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            sprintHandler?.Invoke();
         }
     }
 }

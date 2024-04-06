@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
+
+    [SerializeField] private float walkSpeed = 5f;
+    [SerializeField] private float sprintSpeed = 10f;
+    private bool isSprinting = false;
     [SerializeField] private Transform playerCamera;   
 
     private PlayerInput playerInput;
@@ -25,11 +29,23 @@ public class PlayerController : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         playerInput.jumpHandler += Jump;
+        playerInput.sprintHandler += ToggleSprint;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(isSprinting)
+        {
+            // increase speed to sprint speed over time
+            speed = Mathf.Lerp(speed, sprintSpeed, 0.1f);
+        }
+        else
+        {
+            // decrease speed to walk speed over time
+            speed = Mathf.Lerp(speed, walkSpeed, 0.1f);
+        }
+
         // player movement
         Vector3 direction = new Vector3(playerInput.Horizontal, 0, playerInput.Vertical);
         transform.Translate(direction * speed * Time.deltaTime);
@@ -56,5 +72,10 @@ public class PlayerController : MonoBehaviour
         Rigidbody rb = GetComponent<Rigidbody>();
         Vector3 velocity = new Vector3(rb.velocity.x, Mathf.Sqrt(jumpHeight * -2.0f * gravity), rb.velocity.z);
         rb.velocity = velocity;
+    }
+    
+    public void ToggleSprint()
+    {
+        isSprinting = !isSprinting;
     }
 }
