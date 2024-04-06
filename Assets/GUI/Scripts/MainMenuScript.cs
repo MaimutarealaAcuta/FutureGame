@@ -13,6 +13,9 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField]
     private GameObject creditsPanel;
 
+    [SerializeField]
+    private GameManager gameManager;
+
     bool isOptionsActive = false;
     bool isCreditsActive = false;
 
@@ -44,6 +47,8 @@ public class MainMenuScript : MonoBehaviour
     public void UpdateMasterVolume(float volume)
     {
         Debug.Log("Master Volume: " + volume);
+        gameManager.MasterVolume = volume;
+
     }
     #endregion
 
