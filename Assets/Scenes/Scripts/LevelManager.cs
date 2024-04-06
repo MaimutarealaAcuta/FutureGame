@@ -18,6 +18,8 @@ public abstract class LevelManager: MonoBehaviour
 
     [SerializeField] protected List<KeyValuePair<string, int>> flags;
     protected PlayerInventory playerInventory;
+
+    private UIGameOverScript uiGameOverScript;
     protected virtual string GetObjective()
     {
         StringBuilder sb = new StringBuilder();
@@ -49,5 +51,12 @@ public abstract class LevelManager: MonoBehaviour
             playerInventory.SetFlag(flag.key, 0);
         }
         updateObjectiveHandler?.Invoke(GetObjective());
+
+        uiGameOverScript = FindObjectOfType<UIGameOverScript>();
+    }
+
+    public void ToggleEndGame()
+    {
+        uiGameOverScript?.ToggleEndGame();
     }
 }

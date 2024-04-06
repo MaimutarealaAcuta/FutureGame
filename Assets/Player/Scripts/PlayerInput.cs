@@ -22,6 +22,9 @@ public class PlayerInput : MonoBehaviour
     public delegate void ShowObjective();
     public ShowObjective showObjectiveHandler;
 
+    public delegate void Pause();
+    public Pause pauseHandler;
+
     private bool active = true;
 
 
@@ -64,6 +67,11 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.LeftShift))
         {
             sprintHandler?.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseHandler?.Invoke();
         }
     }
 

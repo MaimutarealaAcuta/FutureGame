@@ -13,13 +13,21 @@ public class Door : MonoBehaviour, Triggerable
     [SerializeField] private DoorState doorState = DoorState.Closed;
     private Vector3 offset = new Vector3(0, 15, 0);
     private bool opening = false;
-    
+
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void Trigger()
     {
         if (opening) return;
 
         opening = true;
         StartCoroutine(OpenDoor());
+        audioSource.Play();
     }
 
     IEnumerator OpenDoor()
