@@ -26,14 +26,15 @@ public class UIGameOverScript : MonoBehaviour
     {
         gameOver = true;
         Time.timeScale = 1;
-        playerInput.SetInputActive(false);
         if(goodEnding)
         {
             endGameMenu[1].SetActive(true);
+            return;
         }
         else
         {
             endGameMenu[0].SetActive(true);
+            playerInput.SetInputActive(false);
         }
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

@@ -22,12 +22,13 @@ public class CampFire : MonoBehaviour, Interactable
     private LevelManager levelManager;
 
     private UIMessageScript ui;
+    private bool highlightable = true;
 
 
     public void Highlight()
     {
-        if (!isInteractable) return;
-        
+        if(!highlightable) return;
+
         if(!levelManager.CheckObjective("stones"))
         {
             interactMessage = "Collect stones";
@@ -54,6 +55,7 @@ public class CampFire : MonoBehaviour, Interactable
         StartCoroutine(LightFire());
         interactMessage = "";
         isInteractable = false;
+        highlightable = false;
     }
 
     public void Unhighlight()
