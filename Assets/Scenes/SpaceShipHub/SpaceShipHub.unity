@@ -622,7 +622,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &88086956
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -758,10 +757,21 @@ MonoBehaviour:
   m_SoftShadowQuality: 0
 --- !u!108 &102251444
 Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 420689c37deaa6048818664be40bf100, type: 3}
+--- !u!4 &426569784 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8380305768577141457, guid: 420689c37deaa6048818664be40bf100,
+    type: 3}
+  m_PrefabInstance: {fileID: 426569783}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &454178698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5897216880455960235, guid: 2a32b6d71e554314d8bbadcf6bcf4767,
+    type: 3}
+  m_PrefabInstance: {fileID: 62722975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &454178702
+MeshCollider:
   m_GameObject: {fileID: 102251442}
   m_Enabled: 1
   serializedVersion: 10

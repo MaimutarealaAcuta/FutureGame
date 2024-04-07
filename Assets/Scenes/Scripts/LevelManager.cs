@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class LevelManager: MonoBehaviour
 {
@@ -20,6 +21,10 @@ public abstract class LevelManager: MonoBehaviour
     protected PlayerInventory playerInventory;
 
     private UIGameOverScript uiGameOverScript;
+
+    [SerializeField]
+    protected GameManager gameManager;
+    
     protected virtual string GetObjective()
     {
         StringBuilder sb = new StringBuilder();
@@ -58,5 +63,23 @@ public abstract class LevelManager: MonoBehaviour
     public void ToggleEndGame()
     {
         uiGameOverScript?.ToggleEndGame();
+    }
+
+    public void FinishLevel(string level)
+    {
+        switch(level)
+        {
+            case "Prehistoric":
+                gameManager.solvedFire = true;
+                break;
+            case "Medieval":
+                gameManager.solvedPoison = true;
+                break;
+            case "Modern":
+                gameManager.solvedLetter = true;
+                break;
+        }
+
+        SceneManager.LoadScene("SpaceShipHub");
     }
 }

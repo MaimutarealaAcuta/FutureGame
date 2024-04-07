@@ -8,10 +8,16 @@ public class PrehistoricLevelManager : LevelManager
     [SerializeField]
     private List<KeyValuePair<GameObject, int>> pickablesList;
 
+    [SerializeField]
+    private Transform spawnCenter;
+
+    [SerializeField]
+    private float spawnRadius = 5f;
+
     protected override void Start()
     {
         base.Start();
-        SpawnPickables();
+        SpawnPickables(spawnCenter, spawnRadius);
     }
 
     protected override string GetObjective()
@@ -27,13 +33,18 @@ public class PrehistoricLevelManager : LevelManager
     }
 
     // spawn pickables
-    private void SpawnPickables()
+    private void SpawnPickables(Transform center, float radius)
     {
         foreach (KeyValuePair<GameObject, int> pickable in pickablesList)
         {
             for (int i = 0; i < pickable.value; i++)
             {
-                GameObject instance = Instantiate(pickable.key, new Vector3(Random.Range(-100, 100), 500, Random.Range(-100, 100)), Quaternion.identity);
+                float dist = Random.Range(0, radius);
+                float angle = Random.Range(0, 2 * Mathf.PI);
+
+                Vector3 pos = spawnCenter.position + new Vector3(Mathf.Cos(angle) * dist, 500, Mathf.Sin(angle) * dist);
+                
+                GameObject instance = Instantiate(pickable.key, pos, Quaternion.identity);
                 instance.name = pickable.key.name;
                 // place instance on ground
                 RaycastHit hit;

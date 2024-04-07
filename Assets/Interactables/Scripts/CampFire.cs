@@ -14,12 +14,20 @@ public class CampFire : MonoBehaviour, Interactable
     [SerializeField]
     private Material[] materialList = new Material[2]; // 0 - unlit, 1 - lit
 
+    [SerializeField]
+    private GameObject fire;
+    
     public bool IsInteractable => isInteractable;
 
     private LevelManager levelManager;
 
+    private UIMessageScript ui;
+
+
     public void Highlight()
     {
+        if (!isInteractable) return;
+        
         if(!levelManager.CheckObjective("stones"))
         {
             interactMessage = "Collect stones";
@@ -43,9 +51,9 @@ public class CampFire : MonoBehaviour, Interactable
     public void Interact()
     {
         if (!isInteractable) return;
-        LightFire();
+        StartCoroutine(LightFire());
         interactMessage = "";
-        isInteractable = false;        
+        isInteractable = false;
     }
 
     public void Unhighlight()
@@ -56,12 +64,19 @@ public class CampFire : MonoBehaviour, Interactable
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
+        ui = FindObjectOfType<UIMessageScript>();
+        fire.SetActive(false);
     }
 
-    void LightFire()
+    IEnumerator LightFire()
     {
         MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
         meshRenderer.material = materialList[1];
+        fire.SetActive(true);
+        ui.ShowMessage("Prometheus! You have brought fire to humanity!");
+        yield return new WaitForSeconds(5);
+        ui.HideMessage();
+        levelManager.FinishLevel("Prehistoric");
     }
 
     
