@@ -14,10 +14,12 @@ public class Shop : MonoBehaviour, Interactable
 
     private LevelManager levelManager;
 
+    private bool highlighteable = true;
+
 
     public void Highlight()
     {
-
+        if(!highlighteable) return;
         if (!levelManager.CheckObjective("coins"))
         {
             interactMessage = "Find 2 coins";
@@ -36,6 +38,7 @@ public class Shop : MonoBehaviour, Interactable
         interactMessage = "";
         isInteractable = false;
         levelManager.ProgressObjective("poison");
+        highlighteable = false;
         
     }
 
