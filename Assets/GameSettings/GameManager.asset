@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameManager
   m_EditorClassIdentifier: 
   MasterVolume: 1
-  solvedFire: 0
+  solvedFire: 1
   solvedPoison: 0
   solvedLetter: 0
-  passedTutorial: 0
+  passedTutorial: 1

@@ -13,7 +13,7 @@ public class UIObjectiveScript : MonoBehaviour
 
     private bool isObjectiveActive = false;
 
-    private void Start()
+    private void Awake()
     {
         playerInput = FindObjectOfType<PlayerInput>();
         playerInput.showObjectiveHandler += ShowObjective;

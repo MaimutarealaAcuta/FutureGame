@@ -990,7 +990,6 @@ GameObject:
   - component: {fileID: 7893657609881698069}
   - component: {fileID: 3994198234257589563}
   - component: {fileID: 3291129814923214204}
-  - component: {fileID: 3693936660533605595}
   m_Layer: 5
   m_Name: GUI
   m_TagString: Untagged
@@ -1157,22 +1156,6 @@ MonoBehaviour:
   - {fileID: 6571569107851226288}
   - {fileID: 1377788852777742695}
   gameOverText: {fileID: 3014806801067244384}
---- !u!114 &3693936660533605595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4963151794508214763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f5f377dc12424542a1ef5c47ef5b15c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endGameMenu:
-  - {fileID: 6571569107851226288}
-  - {fileID: 1377788852777742695}
-  gameOverText: {fileID: 0}
 --- !u!1 &5553738128912004658
 GameObject:
   m_ObjectHideFlags: 0

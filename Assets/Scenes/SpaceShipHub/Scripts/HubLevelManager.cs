@@ -26,19 +26,19 @@ public class HubLevelManager : LevelManager
         messageScript = FindObjectOfType<UIMessageScript>();
         playerInput = FindObjectOfType<PlayerInput>();
 
-        if(gameManager.solvedFire)
+        if (gameManager.solvedFire)
         {
             playerInventory.SetFlag("prehistoric", 1);
         }
-        if(gameManager.solvedPoison)
+        if (gameManager.solvedPoison)
         {
             playerInventory.SetFlag("medieval", 1);
         }
-        if(gameManager.solvedLetter)
+        if (gameManager.solvedLetter)
         {
             playerInventory.SetFlag("modern", 1);
         }
-
+        updateObjectiveHandler?.Invoke(GetObjective());
         // check all flags
         bool allFlagsDone = true;
         foreach (KeyValuePair<string, int> flag in flags)
