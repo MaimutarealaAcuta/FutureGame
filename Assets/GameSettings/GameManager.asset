@@ -16,3 +16,4 @@ MonoBehaviour:
   solvedFire: 0
   solvedPoison: 0
   solvedLetter: 0
+  passedTutorial: 0

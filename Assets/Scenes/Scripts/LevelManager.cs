@@ -60,9 +60,9 @@ public abstract class LevelManager: MonoBehaviour
         uiGameOverScript = FindObjectOfType<UIGameOverScript>();
     }
 
-    public void ToggleEndGame()
+    public void ToggleEndGame(bool goodEnding)
     {
-        uiGameOverScript?.ToggleEndGame();
+        uiGameOverScript?.ToggleEndGame(goodEnding);
     }
 
     public void FinishLevel(string level)

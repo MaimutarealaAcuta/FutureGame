@@ -6,7 +6,7 @@ public class UIGameOverScript : MonoBehaviour
 {
     private PlayerInput playerInput;
     [SerializeField]
-    private GameObject endGameMenu;
+    private GameObject[] endGameMenu;
     
     [SerializeField]
     private GameObject gameOverText;
@@ -22,12 +22,19 @@ public class UIGameOverScript : MonoBehaviour
     {
     }
 
-    public void ToggleEndGame()
+    public void ToggleEndGame(bool goodEnding)
     {
         gameOver = true;
         Time.timeScale = 1;
         playerInput.SetInputActive(false);
-        endGameMenu.SetActive(true);
+        if(goodEnding)
+        {
+            endGameMenu[1].SetActive(true);
+        }
+        else
+        {
+            endGameMenu[0].SetActive(true);
+        }
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         StartCoroutine(AnimateGameOverText());

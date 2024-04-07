@@ -23,7 +23,10 @@ public class MainMenuScript : MonoBehaviour
 
     void Start()
     {
-        
+        gameManager.passedTutorial = false;
+        gameManager.solvedFire = false;
+        gameManager.solvedPoison = false;
+        gameManager.solvedLetter = false;
     }
 
     // Update is called once per frame
@@ -51,6 +54,7 @@ public class MainMenuScript : MonoBehaviour
     {
         Debug.Log("Master Volume: " + volume);
         gameManager.MasterVolume = volume;
+        AudioListener.volume = volume;
 
     }
     #endregion

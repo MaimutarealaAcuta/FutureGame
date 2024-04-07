@@ -12,4 +12,6 @@ public class GameManager : ScriptableObject
     public bool solvedPoison = false;
 
     public bool solvedLetter = false;
+
+    public bool passedTutorial = false;
 }

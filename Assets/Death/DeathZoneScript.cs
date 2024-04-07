@@ -15,7 +15,7 @@ public class DeathZoneScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            levelManager.ToggleEndGame();
+            levelManager.ToggleEndGame(false);
         }
     }
 }
