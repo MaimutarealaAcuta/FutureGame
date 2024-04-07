@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 9156024864201903158}
   - component: {fileID: 3115710878851399494}
   - component: {fileID: 2759414269187315691}
-  - component: {fileID: 2676898436481982684}
   - component: {fileID: 809971275903972502}
+  - component: {fileID: 5417955272631024300}
   m_Layer: 0
   m_Name: Stone
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.348616, y: 0.116, z: -5.8395953}
-  m_LocalScale: {x: 1, y: 0.52881, z: 0.64571}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,8 +85,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2676898436481982684
-SphereCollider:
+--- !u!114 &809971275903972502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4128791140832138211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4898bcfdbf7a08d428b2fcaaf5827be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInteractable: 1
+  highlightMaterial: {fileID: 2100000, guid: 68166ae18b84a1d49997df9308706811, type: 2}
+  flag: stones
+--- !u!64 &5417955272631024300
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,21 +118,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &809971275903972502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4128791140832138211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4898bcfdbf7a08d428b2fcaaf5827be8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInteractable: 1
-  highlightMaterial: {fileID: 2100000, guid: 68166ae18b84a1d49997df9308706811, type: 2}
-  flag: stones
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300006, guid: 89bf544328b22bc4da0d56896518402a, type: 3}
