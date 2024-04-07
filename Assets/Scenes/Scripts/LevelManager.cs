@@ -58,6 +58,8 @@ public abstract class LevelManager: MonoBehaviour
         updateObjectiveHandler?.Invoke(GetObjective());
 
         uiGameOverScript = FindObjectOfType<UIGameOverScript>();
+
+        AudioListener.volume = gameManager.MasterVolume;
     }
 
     public void ToggleEndGame(bool goodEnding)

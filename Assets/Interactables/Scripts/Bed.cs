@@ -30,14 +30,18 @@ public class Bed : MonoBehaviour, Interactable
 
     public void Highlight()
     {
-        if (!isInteractable) return;
 
         if (!levelManager.CheckObjective("poison"))
         {
             interactMessage = "Buy poison";
-            return;
+            isInteractable = false;
+        }
+        else
+        {
+            isInteractable = true;
         }
 
+        if (!isInteractable) return;
         interactMessage = "Kill the king";
     }
 

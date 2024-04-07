@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Castel/Castel.unity
     guid: 0f4dfdd8070ad8d4aa8b2607811b2333
+  - enabled: 1
+    path: Assets/Scenes/ww1/ww1.unity
+    guid: ada874df39919a34cb666b7faa469f6b
   m_configObjects: {}

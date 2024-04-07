@@ -2,32 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shop : MonoBehaviour, Interactable
+public class Barrel : MonoBehaviour, Interactable
 {
-    private string interactMessage = "Buy poison";
+
+    private string interactMessage = "Place envelope";
     public string InteractMessage => interactMessage;
 
-    [SerializeField]
     private bool isInteractable = true;
-
     public bool IsInteractable => isInteractable;
 
     private LevelManager levelManager;
-
+    private UIMessageScript ui;
 
     public void Highlight()
     {
 
-        if (!levelManager.CheckObjective("coins"))
+        if (!levelManager.CheckObjective("letter"))
         {
-            interactMessage = "Find 2 coins";
+            interactMessage = "RETREIVE THE LETTER";
             isInteractable = false;
             return;
         }
-        else isInteractable = true;
+        else
+        {
+            isInteractable = true;
+        }        
 
         if (!isInteractable) return;
-        interactMessage = "Buy poison";
+        interactMessage = "Place letter";
     }
 
     public void Interact()
@@ -35,8 +37,7 @@ public class Shop : MonoBehaviour, Interactable
         if (!isInteractable) return;
         interactMessage = "";
         isInteractable = false;
-        levelManager.ProgressObjective("poison");
-        
+        StartCoroutine(DeliverTheLetter());
     }
 
     public void Unhighlight()
@@ -48,5 +49,14 @@ public class Shop : MonoBehaviour, Interactable
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
+        ui = FindObjectOfType<UIMessageScript>();
+    }
+    
+    IEnumerator DeliverTheLetter()
+    {
+        ui.ShowMessage("Message delivered. Long live the motherland!");
+        yield return new WaitForSeconds(5);
+        ui.HideMessage();
+        levelManager.FinishLevel("Modern");
     }
 }
